@@ -10,7 +10,7 @@ namespace FootballLeague.Data.Models
     {
         public int Id { get; set; }
 
-        public int Name { get; set; }
+        public string Name { get; set; }
 
         public int Points { get; set; }
 

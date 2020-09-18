@@ -14,5 +14,7 @@ namespace FootballLeague.Data.Models
         public Team RightTeam { get; set; }
 
         public Tuple<int, int> Result { get; set; }
+
+        public DateTime DateTime { get; set; }
     }
 }

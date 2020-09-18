@@ -142,6 +142,15 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202009181029458_InitialCreate.cs" />
+    <Compile Include="Migrations\202009181029458_InitialCreate.designer.cs">
+      <DependentUpon>202009181029458_InitialCreate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202009181241266_AddDateTime.cs" />
+    <Compile Include="Migrations\202009181241266_AddDateTime.designer.cs">
+      <DependentUpon>202009181241266_AddDateTime.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -160,7 +169,8 @@
     <Content Include="Views\web.config" />
     <Content Include="Scripts\jquery-3.4.1.slim.min.map" />
     <Content Include="Scripts\jquery-3.4.1.min.map" />
-    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Home\Ranking.cshtml" />
+    <Content Include="Views\Home\Teams.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -173,6 +183,14 @@
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\202009181029458_InitialCreate.resx">
+      <DependentUpon>202009181029458_InitialCreate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202009181241266_AddDateTime.resx">
+      <DependentUpon>202009181241266_AddDateTime.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
