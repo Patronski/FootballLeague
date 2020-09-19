@@ -9,7 +9,7 @@ using System.Web.Mvc;
 
 namespace FootballLeague.Controllers
 {
-    public class TeamsController : Controller
+    public class TeamsController : BaseController
     {
         private FootballLeagueContext db = new FootballLeagueContext();
 

@@ -18,13 +18,13 @@
     <tbody>
         @foreach (var match in Model)
         {
-        <tr>
-            <td>@match.LeftTeam.Name</td>
-            <td>@match.LeftTeamGoals</td>
-            <td>@match.RightTeam.Name</td>
-            <td>@match.RightTeamGoals</td>
-            <td>@match.DateTime.ToString("G")</td>
-        </tr>
+            <tr>
+                <td>@match.LeftTeam.Name</td>
+                <td>@match.LeftTeamGoals</td>
+                <td>@match.RightTeam.Name</td>
+                <td>@match.RightTeamGoals</td>
+                <td>@match.DateTime.ToString("G")</td>
+            </tr>
         }
     </tbody>
 </table>

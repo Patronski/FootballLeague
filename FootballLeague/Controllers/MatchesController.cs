@@ -13,7 +13,7 @@ using Match = FootballLeague.Data.Models.Match;
 
 namespace FootballLeague.Controllers
 {
-    public class MatchesController : Controller
+    public class MatchesController : BaseController
     {
         private FootballLeagueContext db = new FootballLeagueContext();
 

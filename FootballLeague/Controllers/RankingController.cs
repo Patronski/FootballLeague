@@ -8,7 +8,7 @@ using System.Web.Mvc;
 
 namespace FootballLeague.Controllers
 {
-    public class RankingController : Controller
+    public class RankingController : BaseController
     {
         // GET: Home
         [Route()]
