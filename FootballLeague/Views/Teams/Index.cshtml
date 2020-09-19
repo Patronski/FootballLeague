@@ -1,0 +1,54 @@
+﻿@model List<FootballLeague.Models.EditTeam>
+@{
+    ViewBag.Title = "Teams";
+}
+
+<h2>Teams</h2>
+
+<div class="jumbotron">
+    <form class="form-horizontal" action="/Teams/Create" , method="post">
+        @Html.ValidationSummary(true, "summaryMessage", new { @class = "text-danger" })
+        <div class="form-group">
+            <label class="control-label col-sm-2" for="teamName">Add new team:</label>
+            <div class="col-sm-10">
+                <input name="teamName" type="text" class="form-control" placeholder="Team name...">
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-sm-offset-2 col-sm-10">
+                <button type="submit" class="btn btn-default btn-success">Add</button>
+            </div>
+        </div>
+    </form>
+</div>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th class="col-sm-2" scope="col">Name</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var team in Model)
+        {
+            <tr>
+                <td class="col-sm-2">@team.Name</td>
+                <td>
+                    @using (Html.BeginForm("Delete", "Teams", FormMethod.Post))
+                    {
+                        <input type="hidden" name="id" value="@team.Id" />
+                        <button type="submit" class="btn btn-default btn-danger" onclick="myFunction()">Delete</button>
+                    }
+                    @*@Html.ActionLink("Delete", "Delete", "Teams", routeValues: new { id = team.Id }, htmlAttributes: new { @class = "btn btn-default danger" })*@
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<script>
+    function myFunction() {
+        confirm("Team will be deleted!");
+    }
+</script>
