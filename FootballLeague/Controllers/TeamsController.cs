@@ -11,12 +11,13 @@ namespace FootballLeague.Controllers
 {
     public class TeamsController : Controller
     {
-        // GET: Teams
-        [Route("/")]
+        private FootballLeagueContext db = new FootballLeagueContext();
+
+        [Route()]
         public ActionResult Index()
         {
             var teams = new List<EditTeam>();
-            using (FootballLeagueContext db = new FootballLeagueContext())
+            using (db)
             {
                 teams = db.Teams
                     .Select(x => new EditTeam
@@ -33,19 +34,16 @@ namespace FootballLeague.Controllers
         [HttpPost]
         public async Task<ActionResult> Create(string teamName)
         {
-            using (FootballLeagueContext db = new FootballLeagueContext())
+            if (!db.Teams.Any(x => x.Name == teamName)
+                || string.IsNullOrWhiteSpace(teamName))
             {
-                if (!db.Teams.Any(x => x.Name == teamName)
-                    || string.IsNullOrWhiteSpace(teamName))
+                db.Teams.Add(new Team
                 {
-                    db.Teams.Add(new Team
-                    {
-                        Name = teamName,
-                        Points = 0
-                    });
+                    Name = teamName,
+                    Points = 0
+                });
 
-                    await db.SaveChangesAsync();
-                }
+                await db.SaveChangesAsync();
             }
 
             return RedirectToAction("Index");
@@ -54,15 +52,15 @@ namespace FootballLeague.Controllers
         [HttpPost]
         public async Task<ActionResult> Delete(int id)
         {
-            using (FootballLeagueContext db = new FootballLeagueContext())
-            {
+            var team = this.db.Teams.Single(x => x.Id == id);
 
-                var team = db.Teams.Single(x => x.Id == id);
+            this.db.Database.ExecuteSqlCommand("TRUNCATE TABLE [Matches]");
 
-                db.Teams.Remove(team);
+            this.db.Teams.Remove(team);
 
-                await db.SaveChangesAsync();
-            }
+            await this.db.Database.ExecuteSqlCommandAsync("UPDATE Teams SET Points = 0");
+
+            await db.SaveChangesAsync();
 
             return RedirectToAction("Index");
         }

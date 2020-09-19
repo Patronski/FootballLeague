@@ -1,4 +1,4 @@
-﻿namespace FootballLeague.Migrations
+﻿namespace FootballLeague.Data.Migrations
 {
     using System;
     using System.Data.Entity.Migrations;

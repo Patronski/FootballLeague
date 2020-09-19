@@ -144,16 +144,23 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202009181029458_InitialCreate.cs" />
-    <Compile Include="Migrations\202009181029458_InitialCreate.designer.cs">
+    <Compile Include="Data\Migrations\202009181029458_InitialCreate.cs" />
+    <Compile Include="Data\Migrations\202009181029458_InitialCreate.designer.cs">
       <DependentUpon>202009181029458_InitialCreate.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202009181241266_AddDateTime.cs" />
-    <Compile Include="Migrations\202009181241266_AddDateTime.designer.cs">
+    <Compile Include="Data\Migrations\202009181241266_AddDateTime.cs" />
+    <Compile Include="Data\Migrations\202009181241266_AddDateTime.designer.cs">
       <DependentUpon>202009181241266_AddDateTime.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Data\Migrations\202009191357047_Added goals.cs" />
+    <Compile Include="Data\Migrations\202009191357047_Added goals.designer.cs">
+      <DependentUpon>202009191357047_Added goals.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Migrations\Configuration.cs" />
+    <Compile Include="Models\AddMatch.cs" />
     <Compile Include="Models\EditTeam.cs" />
+    <Compile Include="Models\IMatchManager.cs" />
+    <Compile Include="Models\MatchManager.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -175,6 +182,7 @@
     <Content Include="Views\Ranking\Index.cshtml" />
     <Content Include="Views\Teams\Index.cshtml" />
     <Content Include="Views\Matches\Index.cshtml" />
+    <Content Include="Views\Matches\Create.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -189,11 +197,14 @@
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\202009181029458_InitialCreate.resx">
+    <EmbeddedResource Include="Data\Migrations\202009181029458_InitialCreate.resx">
       <DependentUpon>202009181029458_InitialCreate.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202009181241266_AddDateTime.resx">
+    <EmbeddedResource Include="Data\Migrations\202009181241266_AddDateTime.resx">
       <DependentUpon>202009181241266_AddDateTime.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Data\Migrations\202009191357047_Added goals.resx">
+      <DependentUpon>202009191357047_Added goals.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

@@ -1,0 +1,32 @@
+﻿@model List<SelectListItem>
+@{
+    ViewBag.Title = "Create match";
+}
+
+<h2>Create match</h2>
+
+@if (TempData["Error"] != null)
+{
+    <span class="alert-warning">
+        @TempData["Error"]
+    </span>
+}
+
+<form class="form-horizontal" method="post" action="/Matches/FinishCreate">
+    <div class="form-group">
+        @*<select name="Team 1" asp-items="@Model" class="form-control">
+                <option>--</option>
+            </select>
+            <select name="Team 2" asp-items="@Model" class="form-control">
+                <option>--</option>
+            </select>*@
+        @Html.DropDownList("teamNameLeft", Model, "Select team")
+        @Html.DropDownList("teamNameRight", Model, "Select team")
+    </div>
+    <div class="form-group">
+        <div class="col-sm-offset-2 col-sm-10">
+            <button type="submit" class="btn btn-default btn-success">Add</button>
+        </div>
+    </div>
+</form>
+

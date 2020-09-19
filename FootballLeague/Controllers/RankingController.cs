@@ -11,7 +11,7 @@ namespace FootballLeague.Controllers
     public class RankingController : Controller
     {
         // GET: Home
-        [Route("/")]
+        [Route()]
         public ActionResult Index()
         {
             var teams = new List<Team>();

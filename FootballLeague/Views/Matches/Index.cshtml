@@ -1,7 +1,30 @@
-﻿
+﻿@model List<FootballLeague.Data.Models.Match>
 @{
     ViewBag.Title = "Matches";
 }
 
 <h2>Matches</h2>
 
+<table class="table">
+    <thead>
+        <tr>
+            <th>Team A</th>
+            <th>Goals</th>
+            <th>Team B</th>
+            <th>Goals</th>
+            <th>Date</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var match in Model)
+        {
+        <tr>
+            <td>@match.LeftTeam.Name</td>
+            <td>@match.LeftTeamGoals</td>
+            <td>@match.RightTeam.Name</td>
+            <td>@match.RightTeamGoals</td>
+            <td>@match.DateTime.ToString("G")</td>
+        </tr>
+        }
+    </tbody>
+</table>
