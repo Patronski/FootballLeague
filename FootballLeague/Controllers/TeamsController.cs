@@ -58,7 +58,7 @@ namespace FootballLeague.Controllers
 
             this.db.Teams.Remove(team);
 
-            await this.db.Database.ExecuteSqlCommandAsync("UPDATE Teams SET Points = 0");
+            await this.db.Database.ExecuteSqlCommandAsync("UPDATE Teams SET Points = 0 WHERE  Points != 0");
 
             await db.SaveChangesAsync();
 
